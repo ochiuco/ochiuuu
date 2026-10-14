@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "memberTier" TEXT NOT NULL DEFAULT 'BRONZE';

@@ -1,0 +1,338 @@
+[
+  {
+    "name": "首期強推！復古玫瑰提花彎刀褲",
+    "description": "淺卡其、墨綠兩大實用色系\n淺卡清爽柔和，襯夏日淺色上衣格外百搭\n墨綠沉穩復古，著身低調有質感。\n牛仔採立體提花工藝，異於普通表面印花，紋路細緻唔誇張，耐洗唔甩紋\n面料唔硬身焗身，夏天穿著無負擔。\n\nO'CHIU有話說：本款彎刀褲本店提供褲長裁剪服務",
+    "price": 24900,
+    "originalPrice": null,
+    "category": "bottoms",
+    "tag": "BESTSELLER",
+    "material": null,
+    "images": ["/images/products/OC00001/OC00001_Y.JPG", "/images/products/OC00001/OC00001_Y_1.JPG", "/images/products/OC00001/OC00001_Y_2.JPG", "/images/products/OC00001/OC00001_Y_3.JPG", "/images/products/OC00001/OC00001_Y_4.JPG"],
+    "hoverImage": "/images/products/OC00001/OC00001_Y_1.JPG",
+    "colors": [
+      { "name": "淺卡其", "value": "#C3B091" },
+      { "name": "墨綠", "value": "#023020" }
+    ],
+    "colorImages": {
+      "淺卡其": ["/images/products/OC00001/OC00001_Y.JPG", "/images/products/OC00001/OC00001_Y_1.JPG", "/images/products/OC00001/OC00001_Y_2.JPG", "/images/products/OC00001/OC00001_Y_3.JPG", "/images/products/OC00001/OC00001_Y_4.JPG"],
+      "墨綠": ["/images/products/OC00001/OC00001_G.JPG", "/images/products/OC00001/OC00001_G_1.JPG", "/images/products/OC00001/OC00001_G_2.JPG", "/images/products/OC00001/OC00001_G_3.JPG"]
+    },
+    "sizes": ["S", "M"],
+    "stock": {
+      "淺卡其-S": 3,
+      "淺卡其-M": 3,
+      "墨綠-S": 3,
+      "墨綠-M": 3
+    },
+    "care": ["30°C以下水洗", "深色衣物首次單獨洗滌", "不可漂白", "懸掛晾乾", "低溫熨燙"],
+    "details": ["立體提花工藝", "彎刀褲型", "面料輕薄不硬身", "耐洗不甩紋", "提供褲長裁剪服務"]
+  },
+  {
+    "name": "美式破洞水洗七分褲（預售）",
+    "description": "復古水洗藍配上寬闊直筒剪裁，胯部同大腿嘅多餘贅肉可以好好收埋\n側邊破洞磨爛細節，增添隨性街頭感，上身不死板臃腫。\n\nO'CHIU有話說：日常一件簡單短袖、短背心就能成套出門，襯長襪小皮鞋、休閒波鞋或者懶人拖鞋都毫無壓力",
+    "price": 15000,
+    "originalPrice": null,
+    "category": "bottoms",
+    "tag": null,
+    "material": null,
+    "images": ["/images/products/OC00002/OC00002.JPG", "/images/products/OC00002/OC00002_2.JPG"],
+    "hoverImage": "/images/products/OC00002/OC00002_2.JPG",
+    "colors": [
+      { "name": "藍色", "value": "#0000FF" }
+    ],
+    "colorImages": {
+      "藍色": ["/images/products/OC00002/OC00002.JPG", "/images/products/OC00002/OC00002_2.JPG"]
+    },
+    "sizes": ["S", "M"],
+    "stock": {
+      "藍色-S": 1
+    },
+    "care": ["30°C以下水洗", "深色衣物首次單獨洗滌", "不可漂白", "懸掛晾乾", "低溫熨燙"],
+    "details": ["復古水洗藍", "寬闊直筒剪裁", "七分褲長", "側邊破洞磨爛細節"]
+  },
+  {
+    "name": "花花蕾絲短袖",
+    "description": "整件採用滿幅立體蕾絲面料，帶通透微透膚感\n不會過分暴露，恰到好處帶出辣妹氣質。\n圓領搭配波浪花邊領口，短袖袖口同樣做荷葉剪裁，細節柔和有層次\n修身短款剪裁，剛好露出腰腹線條，輕易拉高腰線顯比例。\n\nO'CHIU有話說：彈性蕾絲貼身唔勒肉，上身勾勒身形曲線，搭配闊腿褲、深色牛仔褲都十分契合，日常出街、約會都適合。",
+    "price": 13000,
+    "originalPrice": null,
+    "category": "tops",
+    "tag": "NEW",
+    "material": null,
+    "images": ["/images/products/OC00003/OC00003.JPG", "/images/products/OC00003/OC00003_1.JPG", "/images/products/OC00003/OC00003_2.JPG"],
+    "hoverImage": "/images/products/OC00003/OC00003_1.JPG",
+    "colors": [
+      { "name": "褐色", "value": "#996633" },
+      { "name": "黑色", "value": "#000000" }
+    ],
+    "colorImages": null,
+    "sizes": ["均碼"],
+    "stock": {
+      "褐色-均碼": 3,
+      "黑色-均碼": 3
+    },
+    "care": ["手洗或放入洗衣袋", "不可漂白", "不可烘乾", "平攤晾乾", "低溫熨燙"],
+    "details": ["滿幅立體蕾絲面料", "微透膚感", "圓領波浪花邊", "修身短款剪裁", "彈性蕾絲"]
+  },
+  {
+    "name": "米白短款皮衣外套",
+    "description": "柔和米白色調中和皮衣硬朗感，日常穿不會太強勢，一年四季都有搭配空間。\n簡約圓領設計，門襟按扣開合穿脫方便；衣身分割車線強化立體版型，兩側插袋實用美觀。\n短款落肩寬鬆剪裁，剛好拉高腰線，下擺收褶收口，隨意搭長裙、闊腿褲、工裝中褲都能平衡比例。\n軟皮面料輕柔不硬挺，上身無束縛，春秋單穿、夏天室內冷氣房都適合。\n\nO'CHIU有話說：低調米白機車款，打破皮衣只能走酷風的印象，甜系、休閒穿搭都能駕馭。",
+    "price": 28800,
+    "originalPrice": null,
+    "category": "outerwear",
+    "tag": "NEW",
+    "material": null,
+    "images": ["/images/products/OC00004/OC00004.JPG", "/images/products/OC00004/OC00004_1.JPG"],
+    "hoverImage": "/images/products/OC00004/OC00004_1.JPG",
+    "colors": [
+      { "name": "白色", "value": "#FFFFFF" }
+    ],
+    "colorImages": null,
+    "sizes": ["均碼"],
+    "stock": {
+      "白色-均碼": 5
+    },
+    "care": ["專業乾洗", "不可水洗", "不可漂白", "避免陽光直射", "懸掛存放"],
+    "details": ["軟皮面料", "圓領設計", "門襟按扣開合", "短款落肩寬鬆剪裁", "兩側插袋"]
+  },
+  {
+    "name": "韓系波點花苞蓬蓬半身裙",
+    "description": "白底細小波點柔和耐看，面料輕薄透氣，春夏穿清爽舒適。\n花苞裙型鬆軟蓬鬆，剛好藏住大腿贅肉，行動起來輕盈有層次。\n\nO'CHIU有話說：搭配簡約短袖、修身短上衣都很協調，日常休閒、街拍打卡都合適。",
+    "price": 12000,
+    "originalPrice": null,
+    "category": "bottoms",
+    "tag": "NEW",
+    "material": null,
+    "images": ["/images/products/OC00005/OC00005_B.JPG", "/images/products/OC00005/OC00005_B_1.JPG", "/images/products/OC00005/OC00005_B_2.JPG", "/images/products/OC00005/OC00005_B_3.JPG"],
+    "hoverImage": "/images/products/OC00005/OC00005_B_1.JPG",
+    "colors": [
+      { "name": "黑色", "value": "#000000" },
+      { "name": "白色", "value": "#FFFFFF" }
+    ],
+    "colorImages": {
+      "黑色": ["/images/products/OC00005/OC00005_B.JPG", "/images/products/OC00005/OC00005_B_1.JPG", "/images/products/OC00005/OC00005_B_2.JPG", "/images/products/OC00005/OC00005_B_3.JPG"],
+      "白色": ["/images/products/OC00005/OC00005_W.JPG", "/images/products/OC00005/OC00005_W_1.JPG", "/images/products/OC00005/OC00005_W_2.JPG", "/images/products/OC00005/OC00005_W_3.JPG", "/images/products/OC00005/OC00005_W_4.JPG"]
+    },
+    "sizes": ["S", "M"],
+    "stock": {
+      "黑色-S": 2,
+      "黑色-M": 2,
+      "白色-S": 2,
+      "白色-M": 2
+    },
+    "care": ["30°C以下水洗", "不可漂白", "不可烘乾", "懸掛晾乾", "低溫熨燙"],
+    "details": ["白底細小波點", "面料輕薄透氣", "花苞裙型蓬鬆", "藏住大腿贅肉", "輕盈有層次"]
+  },
+  {
+    "name": "淺灰貓紋牛仔短褲",
+    "description": "水洗貓抓紋高腰直筒牛仔短褲\n獨特灰調做舊水洗色，布面鋪滿自然貓抓磨白紋路，復古質感突出，上身不易撞款。\n經典高腰設計，輕易抬升腰線，視覺拉長雙腿；直筒闊短剪裁，鬆容遮蓋大腿贅肉，不貼腿、不放大胯部缺點\n面料薄軟不硬身，春夏長時間外出都透氣唔焗熱。\n配修身短T、軟皮機車外套、工裝上衣毫無違和，日常逛街、街拍打卡都能穿出小眾獨特氣息。\n\nO'CHIU有話說：水洗固色工藝，洗滌不易泛白掉色；直筒版型對小个子友好，隨便搭波鞋都顯長腿。",
+    "price": 15600,
+    "originalPrice": null,
+    "category": "bottoms",
+    "tag": null,
+    "material": null,
+    "images": ["/images/products/OC00006/OC00006.JPG", "/images/products/OC00006/OC00006_1.JPG", "/images/products/OC00006/OC00006_2.JPG", "/images/products/OC00006/OC00006_3.JPG", "/images/products/OC00006/OC00006_4.JPG"],
+    "hoverImage": "/images/products/OC00006/OC00006_1.JPG",
+    "colors": [
+      { "name": "灰色", "value": "#808080" }
+    ],
+    "colorImages": null,
+    "sizes": ["S", "M", "L"],
+    "stock": {
+      "灰色-S": 3,
+      "灰色-M": 2,
+      "灰色-L": 3
+    },
+    "care": ["30°C以下水洗", "深色衣物首次單獨洗滌", "不可漂白", "懸掛晾乾", "低溫熨燙"],
+    "details": ["水洗貓抓紋", "高腰直筒剪裁", "做舊水洗色", "面料薄軟不硬身", "水洗固色工藝"]
+  },
+  {
+    "name": "短款麻質連衣裙（預售）",
+    "description": "柔和淺灰調清爽乾淨，面料輕薄透氣，夏日穿著毫無負擔。\n圓領前幅搭配細緻同布綁帶，簡單增添溫柔細節；無袖剪裁剛好露出肩頸線條，不會過於暴露。\n腰側做收褶設計，自然收束腰線，下擺散開成傘形短裙，輕鬆遮蓋大腿贅肉，行動起來飄逸靈動。\n版型簡約乾淨，配波鞋、小皮鞋都合襯，行街、打卡出片效果很好。",
+    "price": 16500,
+    "originalPrice": null,
+    "category": "bottoms",
+    "tag": null,
+    "material": null,
+    "images": ["/images/products/OC00007/OC00007.JPG", "/images/products/OC00007/OC00007_1.JPG", "/images/products/OC00007/OC00007_2.JPG", "/images/products/OC00007/OC00007_3.JPG", "/images/products/OC00007/OC00007_4.JPG", "/images/products/OC00007/OC00007_5.JPG"],
+    "hoverImage": "/images/products/OC00007/OC00007_1.JPG",
+    "colors": [
+      { "name": "白色", "value": "#FFFFFF" }
+    ],
+    "colorImages": null,
+    "sizes": ["均碼"],
+    "stock": {
+      "白色-均碼": 2
+    },
+    "care": ["手洗", "不可漂白", "不可烘乾", "平攤晾乾", "低溫熨燙"],
+    "details": ["柔和淺灰調", "面料輕薄透氣", "無袖剪裁", "腰側收褶設計", "傘形短裙下擺"]
+  },
+  {
+    "name": "波點半袖娃娃袖襯衣（預售）",
+    "description": "柔和米白底搭配細小波點，整體氛圍溫柔清甜，日常穿完全唔會過於甜膩。\n經典娃娃圓領設計，門襟同下擺縫有同布蝴蝶結點綴，細節滿滿；短袖微微泡泡袖剪裁，輕微修飾手臂線條，藏住拜拜肉。\n下擺荷葉魚尾碎褶，短款版型剛好拉高腰線，搭配長裙、闊腿牛仔褲都很協調。\n面料輕薄透氣，夏日行街、打卡都舒適，喜愛溫柔甜系風格一定唔好錯過。\n\nO'CHIU有話說：衣身蝴蝶結為固定車縫設計，成套穿搭甜美感更統一。",
+    "price": 15600,
+    "originalPrice": null,
+    "category": "tops",
+    "tag": "NEW",
+    "material": null,
+    "images": ["/images/products/OC00008/OC00008_W.JPG", "/images/products/OC00008/OC00008_W_1.JPG", "/images/products/OC00008/OC00008_W_2.JPG"],
+    "hoverImage": "/images/products/OC00008/OC00008_W_1.JPG",
+    "colors": [
+      { "name": "白色", "value": "#FFFFFF" },
+      { "name": "淺黃色", "value": "#FFFF66" }
+    ],
+    "colorImages": {
+      "白色": ["/images/products/OC00008/OC00008_W.JPG", "/images/products/OC00008/OC00008_W_1.JPG", "/images/products/OC00008/OC00008_W_2.JPG"],
+      "淺黃色": ["/images/products/OC00008/OC00008_Y.JPG", "/images/products/OC00008/OC00008_Y_1.JPG", "/images/products/OC00008/OC00008_Y_2.JPG"]
+    },
+    "sizes": ["均碼"],
+    "stock": {
+      "白色-均碼": 2,
+      "淺黃色-均碼": 2
+    },
+    "care": ["30°C以下水洗", "不可漂白", "不可烘乾", "懸掛晾乾", "低溫熨燙"],
+    "details": ["米白底細小波點", "娃娃圓領設計", "泡泡袖剪裁", "下擺荷葉魚尾碎褶", "短款版型"]
+  },
+  {
+    "name": "高腰闊腿西褲",
+    "description": "面料帶細微豎紋肌理，摸起身透氣輕薄，夏天穿不會焗身。\n腰頭做雙排壓褶細節，無形拉寬腰腹空間，藏住小肚腩；高腰直筒闊腳版型，順直垂墜落腳，輕鬆拉長下半身比例，胯寬、腿粗都可以好好遮蓋。\n紐扣門襟搭配側袋設計，日常擺放手機銀包都實用。",
+    "price": 19500,
+    "originalPrice": null,
+    "category": "bottoms",
+    "tag": null,
+    "material": null,
+    "images": ["/images/products/OC00009/OC00009_M.JPG", "/images/products/OC00009/OC00009_M_1.JPG"],
+    "hoverImage": "/images/products/OC00009/OC00009_M_1.JPG",
+    "colors": [
+      { "name": "米灰", "value": "#808080" },
+      { "name": "咖啡", "value": "#996600" },
+      { "name": "卡其色", "value": "#C3B091" }
+    ],
+    "colorImages": {
+      "米灰": ["/images/products/OC00009/OC00009_M.JPG", "/images/products/OC00009/OC00009_M_1.JPG"],
+      "咖啡": ["/images/products/OC00009/OC00009_C.JPG", "/images/products/OC00009/OC00009_C_1.JPG"],
+      "卡其色": ["/images/products/OC00009/OC00009_Y_1.JPG", "/images/products/OC00009/OC00009_Y_2.JPG"]
+    },
+    "sizes": ["S", "M"],
+    "stock": {
+      "米灰-S": 20,
+      "米灰-M": 20,
+      "咖啡-S": 20,
+      "咖啡-M": 20,
+      "卡其色-S": 20,
+      "卡其色-M": 20
+    },
+    "care": ["30°C以下水洗", "不可漂白", "懸掛晾乾", "中溫熨燙", "可乾洗"],
+    "details": ["細微豎紋肌理", "透氣輕薄", "雙排壓褶腰頭", "高腰直筒闊腳版型", "紐扣門襟側袋設計"]
+  },
+  {
+    "name": "薄身西裝褲",
+    "description": "輕薄透氣面料，垂順不悶，日常行走舒展自在。\n中腰微闊版型，順直修飾腿型，鬆度剛好、松弛不垮，低調色調百搭耐看。\n搭配短上衣、T恤、針織衫都合適，散步、日常通勤穿，休閒隨性，打造輕鬆日常風。\n\nO'CHIU有話說：版型包容各類腿型，輕鬆穿出松弛氣質。",
+    "price": 12500,
+    "originalPrice": null,
+    "category": "bottoms",
+    "tag": null,
+    "material": null,
+    "images": ["/images/products/OC00010/OC00010_B.JPG", "/images/products/OC00010/OC00010_B_1.JPG", "/images/products/OC00010/OC00010_G.JPG", "/images/products/OC00010/OC00010_G_1.JPG", "/images/products/OC00010/OC00010_G_2.JPG"],
+    "hoverImage": "/images/products/OC00010/OC00010_G_1.JPG",
+    "colors": [
+      { "name": "黑色", "value": "#000000" },
+      { "name": "灰色", "value": "#808080" }
+    ],
+    "colorImages": {
+      "黑色": ["/images/products/OC00010/OC00010_B.JPG", "/images/products/OC00010/OC00010_B_1.JPG"],
+      "灰色": ["/images/products/OC00010/OC00010_G.JPG", "/images/products/OC00010/OC00010_G_1.JPG", "/images/products/OC00010/OC00010_G_2.JPG"]
+    },
+    "sizes": ["S", "M", "L"],
+    "stock": {
+      "黑色-S": 20,
+      "黑色-M": 20,
+      "黑色-L": 20,
+      "灰色-S": 20,
+      "灰色-M": 20,
+      "灰色-L": 20
+    },
+    "care": ["30°C以下水洗", "不可漂白", "懸掛晾乾", "中溫熨燙", "可乾洗"],
+    "details": ["輕薄透氣面料", "中腰微闊版型", "垂順不悶", "松弛不垮", "百搭耐看"]
+  },
+  {
+    "name": "絲綢半身長裙",
+    "description": "鬆緊腰頭穿著無束縛，搭配斜肩上衣、蕾絲短衫、簡約T恤都好契合，無論日常逛街、約會打卡都適合。",
+    "price": 29900,
+    "originalPrice": null,
+    "category": "bottoms",
+    "tag": null,
+    "material": null,
+    "images": ["/images/products/OC00011/OC00011_B.JPG", "/images/products/OC00011/OC00011_W.JPG"],
+    "hoverImage": "/images/products/OC00011/OC00011_W.JPG",
+    "colors": [
+      { "name": "黑色", "value": "#000000" },
+      { "name": "米白色", "value": "#FFFFFF" }
+    ],
+    "colorImages": {
+      "黑色": ["/images/products/OC00011/OC00011_B.JPG"],
+      "米白色": ["/images/products/OC00011/OC00011_W.JPG"]
+    },
+    "sizes": ["S", "M"],
+    "stock": {
+      "黑色-S": 2,
+      "黑色-M": 2,
+      "米白色-S": 2,
+      "米白色-M": 1
+    },
+    "care": ["手洗", "不可漂白", "不可烘乾", "懸掛晾乾", "低溫熨燙"],
+    "details": ["絲綢面料", "鬆緊腰頭", "穿著無束縛", "百搭易配"]
+  },
+  {
+    "name": "緞面側邊蕾絲裙",
+    "description": "黑色蕾絲拼接緞面大擺半身長裙\n黑底色沉穩耐看，選用醋酸緞面做主面料，帶低調細緻柔光，行走時裙擺輕輕擺動，冷調高級感十足。\n裙側拼接整片透感蕾絲，靜止時簡約利落，走動先透出若隱若現透膚細節，層次豐富唔單調；大闊擺剪裁垂墜感十足，自然藏起大腿、小腿多餘贅肉，唔揀任何腿型。\n鬆緊腰頭穿著無束縛，搭配斜肩上衣、蕾絲短衫、簡約短T都好契合，日常逛街、約會打卡都合適。\n柔和米白調，選用醋酸緞面做主面料，帶低調細緻光澤，行走時裙身輕輕飄動，質感溫柔高級。\n裙側拼接整片透感蕾絲，層次豐富唔單調，若隱若現透膚細節增添溫柔氛圍；大闊擺剪裁垂墜感十足，能夠自然遮蓋小腿、大腿多餘線條，唔揀腿型。\n\nO'CHIU有話說：緞面面料垂順不易皺，內層搭配蕾絲拼接，透光唔走光，夏日著優雅又安心。",
+    "price": 26900,
+    "originalPrice": null,
+    "category": "bottoms",
+    "tag": null,
+    "material": null,
+    "images": ["/images/products/OC00012/OC00012_B.JPG", "/images/products/OC00012/OC00012_B_1.JPG", "/images/products/OC00012/OC00012_B_2.JPG"],
+    "hoverImage": "/images/products/OC00012/OC00012_B_1.JPG",
+    "colors": [
+      { "name": "黑色", "value": "#000000" },
+      { "name": "貝殼杏", "value": "#FFFFCC" }
+    ],
+    "colorImages": {
+      "黑色": ["/images/products/OC00012/OC00012_B.JPG", "/images/products/OC00012/OC00012_B_1.JPG", "/images/products/OC00012/OC00012_B_2.JPG"],
+      "貝殼杏": ["/images/products/OC00012/OC00012_W.JPG", "/images/products/OC00012/OC00012_W_1.JPG", "/images/products/OC00012/OC00012_W_2.JPG"]
+    },
+    "sizes": ["S", "M"],
+    "stock": {
+      "黑色-S": 2,
+      "貝殼杏-S": 2,
+      "貝殼杏-M": 1
+    },
+    "care": ["手洗", "不可漂白", "不可烘乾", "懸掛晾乾", "低溫熨燙"],
+    "details": ["醋酸緞面面料", "蕾絲拼接細節", "大闊擺剪裁", "鬆緊腰頭", "垂墜感十足"]
+  },
+  {
+    "name": "斜肩帶扣上衣",
+    "description": "低調咖色溫和襯膚，整件版型充滿細節巧思。\n一邊微蓋手臂、一邊斜肩露鎖骨，搭配金屬扣點綴，剛剛好帶出輕熟氣質，不會過分暴露。\n胸前做蕩褶皺褶設計，自然修飾胸口線條；側邊抽繩可自由調節衣長，輕鬆收出腰曲線，襯高腰半裙、闊腳褲都能拉長下半身比例。\n面料柔軟彈滑，貼身舒適透氣，日常出街、約會都能穿出細緻高級感。\n\nO'CHIU有話說：單邊斜肩剪裁，既能遮手臂贅肉，又能露出好看鎖骨，平衡氣質與小性感。",
+    "price": 13500,
+    "originalPrice": null,
+    "category": "tops",
+    "tag": null,
+    "material": null,
+    "images": ["/images/products/OC00013/OC00013_B.JPG", "/images/products/OC00013/OC00013_B_1.JPG", "/images/products/OC00013/OC00013_B_2.JPG", "/images/products/OC00013/OC00013_B_3.JPG"],
+    "hoverImage": "/images/products/OC00013/OC00013_B_1.JPG",
+    "colors": [
+      { "name": "咖啡色", "value": "#996600" },
+      { "name": "杏色", "value": "#FFFFCC" }
+    ],
+    "colorImages": {
+      "咖啡色": ["/images/products/OC00013/OC00013_B.JPG", "/images/products/OC00013/OC00013_B_1.JPG", "/images/products/OC00013/OC00013_B_2.JPG", "/images/products/OC00013/OC00013_B_3.JPG"],
+      "杏色": ["/images/products/OC00013/OC00013_W.JPG", "/images/products/OC00013/OC00013_W_1.JPG", "/images/products/OC00013/OC00013_W_2.JPG", "/images/products/OC00013/OC00013_W_3.JPG", "/images/products/OC00013/OC00013_W_4.JPG", "/images/products/OC00013/OC00013_W_5.JPG"]
+    },
+    "sizes": ["均碼"],
+    "stock": {
+      "咖啡色-均碼": 3,
+      "杏色-均碼": 2
+    },
+    "care": ["手洗或放入洗衣袋", "不可漂白", "不可烘乾", "平攤晾乾", "低溫熨燙"],
+    "details": ["斜肩露鎖骨設計", "金屬扣點綴", "胸前蕩褶皺褶", "側邊抽繩可調衣長", "面料柔軟彈滑"]
+  }
+]
