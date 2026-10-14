@@ -9,7 +9,7 @@ const heroSlides = [
   {
     image: "/images/ui/Home1_NEW.JPG",
     subtitle: "2026 AUTUMN",
-    title: "秋日新品\n已上架",
+    title: "秋日新品",
     cta: "探索系列",
     link: "/products?filter=new",
   },
