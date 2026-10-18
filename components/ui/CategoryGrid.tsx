@@ -16,7 +16,7 @@ interface CategoryDef {
 const categoryDefs: CategoryDef[] = [
   { name: "上衣", nameEn: "TOPS", image: "/images/ui/Categories_T.JPG", slug: "tops", href: "/products?category=tops" },
   { name: "下裝", nameEn: "BOTTOMS", image: "/images/ui/Categories_B.JPG", slug: "bottoms", href: "/products?category=bottoms" },
-  { name: "外套", nameEn: "OUTERWEAR", image: "/images/ui/Categories_O.JPG", slug: "outerwear", href: "/products?category=outerwear" },
+  { name: "外套", nameEn: "OUTERWEAR", image: "/images/ui/Categories_New_O.JPG", slug: "outerwear", href: "/products?category=outerwear" },
   { name: "配飾", nameEn: "ACCESSORIES", image: "/images/ui/Categories_A.jpeg", slug: "accessories", href: "/products?category=accessories" },
 ];
 
