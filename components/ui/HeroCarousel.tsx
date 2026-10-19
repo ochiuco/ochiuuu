@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 
 const heroSlides = [
   {
-    image: "/images/ui/Home1_NEW.JPG",
+    image: "/Home1_v3.JPG",
     subtitle: "2026 AUTUMN",
     title: "秋日新品",
     cta: "探索系列",
