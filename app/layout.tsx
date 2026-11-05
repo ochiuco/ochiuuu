@@ -20,9 +20,6 @@ export const metadata: Metadata = {
     template: "%s | O'CHIU",
   },
   description: "O'CHIU 相信衣服不需要張揚，卻可以給人力量。我們做的每一件，都希望成為你最自在的那一件。",
-  verification: {
-    google: "請貼上你的GSC驗證碼", // 如果你有 GSC 驗證碼，替換這裡的字串
-  },
 };
 
 export default function RootLayout({
@@ -42,16 +39,18 @@ export default function RootLayout({
         {/* 👇 這裡加入 GA4 與 JSON-LD */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
+               <body className="font-sans antialiased">
+        {/* 👇 這裡加入 GA4 與 JSON-LD */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-T5WS07Y2ZR" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
+            gtag('config', 'G-T5WS07Y2ZR');
           `}
         </Script>
 
-        <JsonLd data={{
-          "@context": "https://schema.org",
           "@type": "Organization",
           name: "O'CHIU",
           url: "https://ochiu.co",
