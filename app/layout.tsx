@@ -3,8 +3,8 @@ import { Noto_Sans_HK } from "next/font/google";
 import "./globals.css";
 import LayoutShell from "@/components/ui/LayoutShell";
 import AuthProvider from "@/components/providers/AuthProvider";
-import Script from "next/script"; // 👈 新增這個
-import { JsonLd } from "@/components/JsonLd"; // 👈 新增這個
+import { JsonLd } from "@/components/JsonLd";
+import { GoogleTagManager } from '@next/third-parties/google'; // 👈 引入 GTM
 
 const notoSansHK = Noto_Sans_HK({
   subsets: ['latin'],
@@ -36,29 +36,21 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
-        {/* 👇 這裡加入 GA4 與 JSON-LD */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-               <body className="font-sans antialiased">
-        {/* 👇 這裡加入 GA4 與 JSON-LD */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-T5WS07Y2ZR" strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-T5WS07Y2ZR');
-          `}
-        </Script>
+        
+        {/* 👇 這是 GTM 標籤，保留這個即可，原本手動寫的 GA4 <Script> 已經幫你拿掉了 */}
+        <GoogleTagManager gtmId="GTM-T5HZVH3W" />
 
+        {/* JSON-LD 結構化資料 */}
+        <JsonLd data={{
+          "@context": "https://schema.org",
           "@type": "Organization",
           name: "O'CHIU",
           url: "https://ochiu.co",
           logo: "https://ochiu.co/icon.png",
           sameAs: ["https://instagram.com/ochiu.co"],
         }} />
-        {/* 👆 到這裡結束 */}
 
+        {/* 原有的 Provider 與 Layout */}
         <AuthProvider>
           <LayoutShell>
             <main className="min-h-screen">
@@ -66,6 +58,7 @@ export default function RootLayout({
             </main>
           </LayoutShell>
         </AuthProvider>
+
       </body>
     </html>
   );
