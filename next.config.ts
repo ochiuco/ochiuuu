@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false, // 隱藏 Next.js 指紋
   images: {
-    unoptimized: true, // 保留你原本的設定
+    unoptimized: false, // 👈 改這裡！開啟 Next.js 自動圖片優化（壓縮、轉 WebP）
   },
   async headers() {
     return [
