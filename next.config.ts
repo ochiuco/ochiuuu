@@ -3,8 +3,15 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false, // 隱藏 Next.js 指紋
   images: {
-    unoptimized: false, // 👈 改這裡！開啟 Next.js 自動圖片優化（壓縮、轉 WebP）
-  },
+  unoptimized: false,
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: '*.public.blob.vercel-storage.com', // 允许所有 Vercel Blob 域名
+      pathname: '/**',
+    },
+  ],
+},
   async headers() {
     return [
       {
