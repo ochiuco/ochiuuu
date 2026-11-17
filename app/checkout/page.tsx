@@ -8,7 +8,7 @@ import useCartStore from '@/store/useCartStore';
 import useAuthStore from '@/store/useAuthStore';
 import { createOrder, createCheckoutSession, createAirwallexCheckout, validatePromoCode } from '@/lib/api';
 import { init as initAirwallex } from '@airwallex/components-sdk';
-import { isOpeningPeriod, determineBestDiscountHKD } from '@/lib/pricing';
+import { determineBestDiscountHKD } from '@/lib/pricing';
 
 // 計算階梯運費（前端，單位 HKD）
 function getShippingFee(method: string, afterDiscountSubtotal: number): number {
@@ -119,7 +119,6 @@ export default function CheckoutPage() {
   const subtotal = getSubtotal();
 
   // ========== 全渠道互斥最優折扣預覽（前端） ==========
-  const opening = isOpeningPeriod();
   const userIsMember = isLoggedIn && isMember;
 
   const bestDiscount = determineBestDiscountHKD(
@@ -133,10 +132,10 @@ export default function CheckoutPage() {
   const appliedDiscountLabel = bestDiscount.label;
   const appliedDiscountChannel = bestDiscount.channel;
 
-  const hasAnyDiscount = opening || userIsMember || (promoApplied && promoDiscount > 0);
+  const hasAnyDiscount = userIsMember || (promoApplied && promoDiscount > 0);
 
   const promoEnteredButNotBest = promoApplied && promoDiscount > 0 &&
-    (appliedDiscountChannel === 'opening' || appliedDiscountChannel === 'member');
+  appliedDiscountChannel === 'member';
   // ==============================================================
 
   const afterDiscount = subtotal - appliedDiscountAmount;
@@ -483,15 +482,15 @@ export default function CheckoutPage() {
       </header>
 
       {/* 折扣提示 Banner */}
-      {(opening || userIsMember) && (
-        <div className="bg-black text-white text-center py-2">
-          <p className="text-xs tracking-wider flex items-center justify-center gap-2">
-            <Tag className="w-3 h-3" />
-            {opening ? '🎉 開業首月限定：全單自動享 9 折優惠' : '👑 會員專屬：全單自動享 9 折優惠'}
-            <span className="opacity-60 ml-1">（與優惠碼擇優使用，不疊加）</span>
-          </p>
-        </div>
-      )}
+    {userIsMember && (
+      <div className="bg-black text-white text-center py-2">
+        <p className="text-xs tracking-wider flex items-center justify-center gap-2">
+           <Tag className="w-3 h-3" />
+      👑 會員專屬：全單自動享 9 折優惠
+      <span className="opacity-60 ml-1">（與優惠碼擇優使用，不疊加）</span>
+    </p>
+  </div>
+)}
 
       {/* 進度條：2 步 */}
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-6">
@@ -1031,7 +1030,7 @@ export default function CheckoutPage() {
                   <div className="mt-4 p-3 bg-amber-50 border border-amber-100 text-xs text-amber-700 leading-relaxed">
                     <p className="flex items-start gap-1.5">
                       <Info className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" />
-                      <span>所有優惠（開業折扣、會員折扣、優惠碼）不可疊加使用，系統已自動為您選擇最優惠的方案。</span>
+                      <span>所有優惠（會員折扣、優惠碼）不可疊加使用，系統已自動為您選擇最優惠的方案。</span>
                     </p>
                   </div>
                 )}
