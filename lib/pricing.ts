@@ -4,28 +4,19 @@
  * O'CHIU 定價引擎（終極版 — 全渠道折扣絕對互斥 + 最優自動判定）
  *
  * 核心規則：
- * 1. 開業首月：全站全單 9 折（10% off）
+ * 1. 開業促銷：已移除
  * 2. 非開業期：永久會員全單 9 折（10% off）
- * 3. 優惠碼：O'CHIU 10% / ARIA|CHLOE|ICY|CRYSTAL|LEO 20% / BEE 30% / ochiulover 階梯減免
- * 4.【絕對互斥原則】上述三種渠道 **絕不疊加**，僅取最優單一折扣
+ * 3. 優惠碼：O'CHIU 10% / ARIA|CHLOE|ICY|CRYSTAL|LEO 20% / BEE 30% / ochiulover 階梯減免 (至 2026-12-31)
+ * 4.【絕對互斥原則】上述渠道 **絕不疊加**，僅取最優單一折扣
  * 5. 所有金額單位：分（cents），1 HKD = 100 分
  */
 
 // ============================================================
-// 開業促銷期判定
+// 開業促銷期判定（已停用）
 // ============================================================
 
-const DEFAULT_OPENING_PROMO_END = '2026-07-19T23:59:59+08:00';
-
-export function getOpeningPromoEnd(): Date {
-  const envDate = process.env.NEXT_PUBLIC_OPENING_PROMO_END || DEFAULT_OPENING_PROMO_END;
-  return new Date(envDate);
-}
-
 export function isOpeningPeriod(): boolean {
-  const now = new Date();
-  const end = getOpeningPromoEnd();
-  return now <= end;
+  return false; // 👈 永遠返回 false，等於永久關閉開業優惠
 }
 
 // ============================================================
@@ -33,7 +24,6 @@ export function isOpeningPeriod(): boolean {
 // ============================================================
 
 export function getMemberDiscountRate(isMember: boolean): number {
-  if (isOpeningPeriod()) return 0.9;
   if (isMember) return 0.9;
   return 1.0;
 }
@@ -45,7 +35,6 @@ export function calculateMemberDiscountAmount(subtotalCents: number, isMember: b
 }
 
 export function getMemberDiscountLabel(isMember: boolean): string {
-  if (isOpeningPeriod()) return '開業優惠 (全單9折)';
   if (isMember) return '會員優惠 (全單9折)';
   return '';
 }
@@ -63,7 +52,7 @@ export const MEMBER_THRESHOLD_CUMULATIVE = 150000;    // 累計 >= HK$ 1500
 
 export interface BuiltInPromoCode {
   code: string;
-  discountType: 'PERCENTAGE' | 'TIERED_FIXED'; // 👈 新增 TIERED_FIXED 類型
+  discountType: 'PERCENTAGE' | 'TIERED_FIXED';
   discountValue: number;
   minOrderAmount: null;
   label: string;
@@ -77,8 +66,7 @@ const BUILT_IN_PROMO_CODES: BuiltInPromoCode[] = [
   { code: "CRYSTAL", discountType: 'PERCENTAGE', discountValue: 20, minOrderAmount: null, label: '全單8折優惠' },
   { code: "LEO", discountType: 'PERCENTAGE', discountValue: 20, minOrderAmount: null, label: '全單8折優惠' },
   { code: "BEE", discountType: 'PERCENTAGE', discountValue: 30, minOrderAmount: null, label: '全單7折優惠' },
-  // 👇 新增 ochiulover 階梯優惠
-  { code: "ochiulover", discountType: 'TIERED_FIXED', discountValue: 0, minOrderAmount: null, label: 'Seasonal Drop Sale' },
+  { code: "OCHIULOVER", discountType: 'TIERED_FIXED', discountValue: 0, minOrderAmount: null, label: 'Seasonal Drop Sale' },
 ];
 
 function normalizePromoCodeInput(input: string): string {
@@ -88,8 +76,21 @@ function normalizePromoCodeInput(input: string): string {
     .replace(/[\u2018\u2019\u0060\u00B4]/g, "'");
 }
 
+// 👇 新增 ochiulover 的過期時間檢查
+const OCHIULOVER_PROMO_END = '2026-12-31T23:59:59+08:00';
+
 export function findBuiltInPromoCode(inputCode: string): BuiltInPromoCode | null {
   const normalized = normalizePromoCodeInput(inputCode);
+
+  // 如果是 ochiulover，檢查是否過期
+  if (normalized === 'OCHIULOVER') {
+    const now = new Date();
+    const end = new Date(OCHIULOVER_PROMO_END);
+    if (now > end) {
+      return null; // 已過期，視為無效優惠碼
+    }
+  }
+
   return BUILT_IN_PROMO_CODES.find(p => p.code === normalized) || null;
 }
 
@@ -97,9 +98,8 @@ export function findBuiltInPromoCode(inputCode: string): BuiltInPromoCode | null
  * 計算內建優惠碼折扣金額（單位：分）
  */
 export function calculateBuiltInPromoDiscount(subtotalCents: number, promo: BuiltInPromoCode): number {
-  // 👇 處理 ochiulover的階梯邏輯（單位：分）
   if (promo.discountType === 'TIERED_FIXED') {
-    if (promo.code === 'ochiulover') {
+    if (promo.code === 'OCHIULOVER') {
       if (subtotalCents >= 120000) return 15000; // 滿 1200 減 150
       if (subtotalCents >= 80000) return 8000;   // 滿 800 減 80
       if (subtotalCents >= 50000) return 4000;   // 滿 500 減 40
@@ -108,7 +108,6 @@ export function calculateBuiltInPromoDiscount(subtotalCents: number, promo: Buil
     return 0;
   }
 
-  // 原有的百分比計算
   const discount = Math.floor((subtotalCents * promo.discountValue) / 100);
   return Math.min(discount, subtotalCents);
 }
@@ -117,9 +116,8 @@ export function calculateBuiltInPromoDiscount(subtotalCents: number, promo: Buil
  * 計算內建優惠碼折扣金額（單位：港幣）
  */
 export function calculateBuiltInPromoDiscountHKD(subtotalHKD: number, promo: BuiltInPromoCode): number {
-  // 👇 處理 ochiulover 的階梯邏輯（單位：港幣）
   if (promo.discountType === 'TIERED_FIXED') {
-    if (promo.code === 'ochiulover') {
+    if (promo.code === 'OCHIULOVER') {
       if (subtotalHKD >= 1200) return 150;
       if (subtotalHKD >= 800) return 80;
       if (subtotalHKD >= 500) return 40;
@@ -128,7 +126,6 @@ export function calculateBuiltInPromoDiscountHKD(subtotalHKD: number, promo: Bui
     return 0;
   }
 
-  // 原有的百分比計算
   const discount = Math.floor((subtotalHKD * promo.discountValue) / 100 * 100) / 100;
   return Math.min(discount, subtotalHKD);
 }
@@ -137,7 +134,7 @@ export function calculateBuiltInPromoDiscountHKD(subtotalHKD: number, promo: Bui
 // 全渠道折扣絕對互斥 + 最優自動判定算法
 // ============================================================
 
-export type DiscountChannel = 'opening' | 'member' | 'promo_builtin' | 'promo_db' | 'none';
+export type DiscountChannel = 'member' | 'promo_builtin' | 'promo_db' | 'none';
 
 export interface DiscountOption {
   channel: DiscountChannel;
@@ -166,17 +163,8 @@ export function determineBestDiscount(
 ): BestDiscountResult {
   const allOptions: DiscountOption[] = [];
 
-  if (isOpeningPeriod()) {
-    const amount = Math.floor(subtotalCents * 0.1);
-    allOptions.push({
-      channel: 'opening',
-      discountAmount: amount,
-      label: '開業優惠 (全單9折)',
-      promoCodeId: null,
-    });
-  }
-
-  if (isMember && !isOpeningPeriod()) {
+  // 會員優惠
+  if (isMember) {
     const amount = Math.floor(subtotalCents * 0.1);
     allOptions.push({
       channel: 'member',
@@ -186,6 +174,7 @@ export function determineBestDiscount(
     });
   }
 
+  // 優惠碼
   if (promoDiscountCents > 0) {
     allOptions.push({
       channel: promoChannel,
@@ -213,7 +202,7 @@ export function determineBestDiscount(
   let memberDiscountForDB = 0;
   let promoDiscountForDB = 0;
 
-  if (best.channel === 'opening' || best.channel === 'member') {
+  if (best.channel === 'member') {
     memberDiscountForDB = best.discountAmount;
     promoDiscountForDB = 0;
   } else if (best.channel === 'promo_builtin' || best.channel === 'promo_db') {
@@ -240,12 +229,7 @@ export function determineBestDiscountHKD(
 ): { discountAmount: number; label: string; channel: DiscountChannel } {
   const options: { channel: DiscountChannel; amount: number; label: string }[] = [];
 
-  if (isOpeningPeriod()) {
-    const amount = Math.floor(subtotalHKD * 10) / 100;
-    options.push({ channel: 'opening', amount, label: '開業優惠 (全單9折)' });
-  }
-
-  if (isMember && !isOpeningPeriod()) {
+  if (isMember) {
     const amount = Math.floor(subtotalHKD * 10) / 100;
     options.push({ channel: 'member', amount, label: '會員優惠 (全單9折)' });
   }
