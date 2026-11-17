@@ -24,7 +24,7 @@ function generateOrderNumber(): string {
 function calculateShippingFee(shippingMethod: string, afterDiscountCents: number): number {
   if (shippingMethod === 'store_pickup') return 0;
 
-  const threshold = 59900; // HK$ 599 = 59900 分
+  const threshold = 50000;// HK$ 500 = 50000 分
 
   if (afterDiscountCents >= threshold) {
     if (shippingMethod === 'sf_locker') return 0;

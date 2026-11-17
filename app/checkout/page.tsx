@@ -13,7 +13,7 @@ import { isOpeningPeriod, determineBestDiscountHKD } from '@/lib/pricing';
 // 計算階梯運費（前端，單位 HKD）
 function getShippingFee(method: string, afterDiscountSubtotal: number): number {
   if (method === 'store_pickup') return 0;
-  if (afterDiscountSubtotal >= 599) {
+  if (afterDiscountSubtotal >= 500) { 
     return method === 'sf_locker' ? 0 : 15;
   }
   return method === 'sf_locker' ? 20 : 35;
@@ -541,7 +541,7 @@ export default function CheckoutPage() {
                 <div>
                   <h2 className="text-lg font-medium tracking-wider mb-4">選擇配送方式</h2>
                   <p className="text-xs text-gray-400 tracking-wider mb-6">
-                    {afterDiscount >= 599 ? '✓ 已滿 HK$ 599，享有順豐自提櫃免運費優惠' : `再消費 HK$ ${(599 - afterDiscount).toFixed(0)} 即可享順豐自提櫃免運費`}
+                    {afterDiscount >= 500 ? '✓ 已滿 HK$ 500，享有順豐自提櫃免運費優惠' : `再消費 HK$ ${(500 - afterDiscount).toFixed(0)} 即可享順豐自提櫃免運費`}
                   </p>
                   <div className="space-y-3">
                     {/* 順豐自提櫃 */}
