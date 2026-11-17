@@ -6,7 +6,7 @@
  * 核心規則：
  * 1. 開業首月：全站全單 9 折（10% off）
  * 2. 非開業期：永久會員全單 9 折（10% off）
- * 3. 優惠碼：O'CHIU 10% / ARIA|CHLOE|ICY|CRYSTAL|LEO 20% / BEE 30% / HOTSALE 階梯減免
+ * 3. 優惠碼：O'CHIU 10% / ARIA|CHLOE|ICY|CRYSTAL|LEO 20% / BEE 30% / ochiulover 階梯減免
  * 4.【絕對互斥原則】上述三種渠道 **絕不疊加**，僅取最優單一折扣
  * 5. 所有金額單位：分（cents），1 HKD = 100 分
  */
@@ -77,8 +77,8 @@ const BUILT_IN_PROMO_CODES: BuiltInPromoCode[] = [
   { code: "CRYSTAL", discountType: 'PERCENTAGE', discountValue: 20, minOrderAmount: null, label: '全單8折優惠' },
   { code: "LEO", discountType: 'PERCENTAGE', discountValue: 20, minOrderAmount: null, label: '全單8折優惠' },
   { code: "BEE", discountType: 'PERCENTAGE', discountValue: 30, minOrderAmount: null, label: '全單7折優惠' },
-  // 👇 新增 HOTSALE 階梯優惠
-  { code: "HOTSALE", discountType: 'TIERED_FIXED', discountValue: 0, minOrderAmount: null, label: 'Seasonal Drop Sale' },
+  // 👇 新增 ochiulover 階梯優惠
+  { code: "ochiulover", discountType: 'TIERED_FIXED', discountValue: 0, minOrderAmount: null, label: 'Seasonal Drop Sale' },
 ];
 
 function normalizePromoCodeInput(input: string): string {
@@ -97,9 +97,9 @@ export function findBuiltInPromoCode(inputCode: string): BuiltInPromoCode | null
  * 計算內建優惠碼折扣金額（單位：分）
  */
 export function calculateBuiltInPromoDiscount(subtotalCents: number, promo: BuiltInPromoCode): number {
-  // 👇 處理 HOTSALE的階梯邏輯（單位：分）
+  // 👇 處理 ochiulover的階梯邏輯（單位：分）
   if (promo.discountType === 'TIERED_FIXED') {
-    if (promo.code === 'HOTSALE') {
+    if (promo.code === 'ochiulover') {
       if (subtotalCents >= 120000) return 15000; // 滿 1200 減 150
       if (subtotalCents >= 80000) return 8000;   // 滿 800 減 80
       if (subtotalCents >= 50000) return 4000;   // 滿 500 減 40
@@ -117,9 +117,9 @@ export function calculateBuiltInPromoDiscount(subtotalCents: number, promo: Buil
  * 計算內建優惠碼折扣金額（單位：港幣）
  */
 export function calculateBuiltInPromoDiscountHKD(subtotalHKD: number, promo: BuiltInPromoCode): number {
-  // 👇 處理 HOTSALE 的階梯邏輯（單位：港幣）
+  // 👇 處理 ochiulover 的階梯邏輯（單位：港幣）
   if (promo.discountType === 'TIERED_FIXED') {
-    if (promo.code === 'HOTSALE') {
+    if (promo.code === 'ochiulover') {
       if (subtotalHKD >= 1200) return 150;
       if (subtotalHKD >= 800) return 80;
       if (subtotalHKD >= 500) return 40;
