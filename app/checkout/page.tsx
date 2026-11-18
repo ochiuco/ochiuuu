@@ -272,32 +272,17 @@ export default function CheckoutPage() {
 
       // 香港支付寶 (AlipayHK)：走 Airwallex Hosted Payment Page
       // HPP 自動處理桌面掃碼 / 手機喚醒 AlipayHK App，無需我們區分設備
+      // 在你的 app/checkout/page.tsx 的 handlePlaceOrder 函数中，找到处理 alipay_hk 的部分
       if (payMethod === 'alipay_hk') {
-        const { intentId, clientSecret, currency, env } = await createAirwallexCheckout(order.id);
-        if (intentId && clientSecret) {
-          const { payments } = await initAirwallex({
-            env: (env || 'demo') as 'demo' | 'prod',
-            enabledElements: ['payments'],
-          });
-
-          if (!payments) {
-            setSubmitError('支付組件初始化失敗，請重試');
-            return;
-          }
-
-          payments.redirectToCheckout({
-            env: (env || 'demo') as 'demo' | 'prod',
-            mode: 'payment',
-            intent_id: intentId,
-            client_secret: clientSecret,
-            currency: currency || 'HKD',
-            country_code: 'HK',
-            methods: ['alipayhk'] as any,
-            successUrl: `${window.location.origin}/checkout/success?order_id=${order.id}&provider=airwallex`,
-          } as any);
+        const { checkoutUrl } = await createAirwallexCheckout(order.id); // 假设后端返回 checkoutUrl
+        if (checkoutUrl) {
+          window.location.href = checkoutUrl; // 直接跳转到 Airwallex 托管支付页
           return;
-        }
-      }
+        } else {
+          setSubmitError('無法獲取支付連結，請稍後再試');
+          return;
+  }
+}
 
       // FPS / PayMe：也呼叫 createCheckoutSession 以建立 orderEvent 記錄
       if (payMethod === 'fps') {
