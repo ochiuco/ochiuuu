@@ -7,7 +7,6 @@ import Link from 'next/link';
 import useCartStore from '@/store/useCartStore';
 import useAuthStore from '@/store/useAuthStore';
 import { createOrder, createCheckoutSession, createAirwallexCheckout, validatePromoCode } from '@/lib/api';
-import { init as initAirwallex } from '@airwallex/components-sdk';
 import { determineBestDiscountHKD } from '@/lib/pricing';
 
 // 計算階梯運費（前端，單位 HKD）
@@ -274,13 +273,13 @@ export default function CheckoutPage() {
       // HPP 自動處理桌面掃碼 / 手機喚醒 AlipayHK App，無需我們區分設備
       // 在你的 app/checkout/page.tsx 的 handlePlaceOrder 函数中，找到处理 alipay_hk 的部分
       if (payMethod === 'alipay_hk') {
-        const { checkoutUrl } = await createAirwallexCheckout(order.id); // 假设后端返回 checkoutUrl
+        const { checkoutUrl } = await createAirwallexCheckout(order.id);
         if (checkoutUrl) {
-          window.location.href = checkoutUrl; // 直接跳转到 Airwallex 托管支付页
+          window.location.href = checkoutUrl; // 直接跳转，不加载任何 SDK
           return;
-        } else {
-          setSubmitError('無法獲取支付連結，請稍後再試');
-          return;
+         } else {
+    setSubmitError('無法獲取支付連結，請稍後再試');
+    return;
   }
 }
 
