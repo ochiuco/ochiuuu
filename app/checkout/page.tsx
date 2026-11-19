@@ -273,15 +273,16 @@ export default function CheckoutPage() {
       // HPP 自動處理桌面掃碼 / 手機喚醒 AlipayHK App，無需我們區分設備
       // 在你的 app/checkout/page.tsx 的 handlePlaceOrder 函数中，找到处理 alipay_hk 的部分
       if (payMethod === 'alipay_hk') {
-        const { Url } = await createAirwallexCheckout(order.id);
-        if (Url) {
-          window.location.href = Url; // 直接跳转，不加载任何 SDK
+        const res = (await createAirwallexCheckout(order.id)) as Record<string, string>;
+        const redirectUrl = res.url || res.Url || res.checkoutUrl;
+        if (redirectUrl) {
+          window.location.href = redirectUrl;
           return;
-         } else {
-    setSubmitError('無法獲取支付連結，請稍後再試');
-    return;
-  }
-}
+        } else {
+          setSubmitError('無法獲取支付連結，請稍後再試');
+          return;
+        }
+      }
 
       // FPS / PayMe：也呼叫 createCheckoutSession 以建立 orderEvent 記錄
       if (payMethod === 'fps') {

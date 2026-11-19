@@ -209,7 +209,7 @@ export async function createAirwallexCheckoutSession(
     throw new Error(`Airwallex 建立 Checkout Session 失敗（${res.status}）：${text}`);
   }
 
-  const raw = (await res.json()) as Record<string, any>;
+  const raw = (await res.json()) as Record<string, string | number | undefined>;
   const checkoutUrl = raw.url || raw.checkout_url || raw.hosted_url || '';
 
   if (!checkoutUrl) {
@@ -217,11 +217,11 @@ export async function createAirwallexCheckoutSession(
   }
 
   return {
-    id: raw.id,
-    url: checkoutUrl,
-    status: raw.status,
-    amount: raw.amount,
-    currency: raw.currency,
-    merchant_order_id: raw.merchant_order_id,
+    id: String(raw.id || ''),
+    url: String(checkoutUrl),
+    status: String(raw.status || ''),
+    amount: Number(raw.amount || 0),
+    currency: String(raw.currency || params.currency),
+    merchant_order_id: raw.merchant_order_id ? String(raw.merchant_order_id) : undefined,
   };
 }
