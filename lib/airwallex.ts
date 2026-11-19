@@ -1,3 +1,4 @@
+
 // lib/airwallex.ts
 // Airwallex 收款核心庫（AlipayHK + WeChat Pay HK）
 //
@@ -141,4 +142,59 @@ export async function retrieveAirwallexPaymentIntent(
   }
 
   return (await res.json()) as AirwallexPaymentIntent;
+}
+
+// lib/airwallex.ts 新增部分
+export interface CreateCheckoutSessionParams {
+  amountCents: number;
+  currency: string;
+  merchantOrderId: string;
+  successUrl: string;
+  metadata?: Record<string, string>;
+}
+
+export interface AirwallexCheckoutSession {
+  id: string;
+  url: string; // 👈 這是 Hosted Payment Page 的支付連結
+  status: string;
+  amount: number;
+  currency: string;
+  merchant_order_id?: string;
+}
+
+export async function createAirwallexCheckoutSession(
+  params: CreateCheckoutSessionParams
+): Promise<AirwallexCheckoutSession> {
+  const token = await getAccessToken();
+  const accountId = process.env.AIRWALLEX_ACCOUNT_ID;
+
+  if (!accountId) {
+    throw new Error('缺少環境變數 AIRWALLEX_ACCOUNT_ID（請在 Airwallex 後台 Settings > Account details 取得）');
+  }
+
+  const res = await fetch(`${getApiBase()}/api/v1/checkout/checkout_sessions/create`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+      'x-api-version': '2026-05-29', // 👈 Checkout Session 功能需要此 API 版本
+    },
+    body: JSON.stringify({
+      request_id: generateRequestId(),
+      account_id: accountId,
+      mode: 'PAYMENT',
+      amount: Number((params.amountCents / 100).toFixed(2)),
+      currency: params.currency,
+      merchant_order_id: params.merchantOrderId,
+      success_url: params.successUrl,
+      metadata: params.metadata,
+    }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Airwallex 建立 Checkout Session 失敗（${res.status}）：${text}`);
+  }
+
+  return (await res.json()) as AirwallexCheckoutSession;
 }

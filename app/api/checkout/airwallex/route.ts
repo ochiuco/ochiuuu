@@ -1,16 +1,15 @@
 // app/api/checkout/airwallex/route.ts
-// Airwallex 收款：建立 PaymentIntent（AlipayHK + WeChat Pay HK）
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { createAirwallexPaymentIntent, getAirwallexEnv } from '@/lib/airwallex';
+import { createAirwallexCheckoutSession } from '@/lib/airwallex';
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-export const maxDuration = 30; // 👈 放在函數外面
+export const maxDuration = 30;
 
 export async function POST(request: NextRequest) {
-  console.log("🚀 Airwallex checkout API hit"); // 方便你在 Vercel Logs 看到它被觸發
-  
+  console.log("🚀 Airwallex checkout API hit");
+
   try {
     const { orderId } = await request.json();
 
@@ -30,7 +29,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: '該訂單已支付或已取消' }, { status: 400 });
     }
 
-    // 僅 香港支付寶 (AlipayHK) 走 Airwallex
     if (order.paymentMethod !== 'alipay_hk') {
       return NextResponse.json(
         { error: '此付款方式不適用 Airwallex' },
@@ -38,32 +36,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 付款完成後 Airwallex 會帶 intent 資訊重定向回此頁，由成功頁負責驗證
     const returnUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/success?order_id=${order.id}&provider=airwallex`;
 
-    const intent = await createAirwallexPaymentIntent({
+    // 👈 呼叫新建立的 Checkout Session API
+    const checkoutSession = await createAirwallexCheckoutSession({
       amountCents: order.totalAmount,
       currency: 'HKD',
       merchantOrderId: order.orderNumber,
-      returnUrl,
+      successUrl: returnUrl,
       metadata: {
         orderId: order.id,
         orderNumber: order.orderNumber,
       },
     });
 
-    // 記錄 Airwallex intent id，方便對賬與 webhook 對應
+    // 記錄 Airwallex checkout session id，方便對賬與 webhook 對應
     await prisma.order.update({
       where: { id: order.id },
-      data: { paymentId: intent.id },
+      data: { paymentId: checkoutSession.id },
     });
 
+    // 👈 回傳 url 給前端
     return NextResponse.json({
-      intentId: intent.id,
-      clientSecret: intent.client_secret,
-      currency: intent.currency,
-      env: getAirwallexEnv(),
+      url: checkoutSession.url,
     });
+
   } catch (error) {
     console.error('Airwallex Checkout 失敗：', error);
     const message = error instanceof Error ? error.message : '創建支付失敗';
