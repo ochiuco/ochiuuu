@@ -16,8 +16,9 @@ import {
 function generateOrderNumber(): string {
   const now = new Date();
   const date = now.toISOString().slice(0, 10).replace(/-/g, '');
-  const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-  return `OC${date}${random}`;
+  const timePart = Date.now().toString().slice(-4);
+  const randomPart = Math.random().toString(36).substring(2, 6).toUpperCase();
+  return `OC${date}${timePart}${randomPart}`;
 }
 
 // 計算階梯運費（單位：分）
