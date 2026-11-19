@@ -172,6 +172,8 @@ export async function createAirwallexCheckoutSession(
     throw new Error('缺少環境變數 AIRWALLEX_ACCOUNT_ID（請在 Airwallex 後台 Settings > Account details 取得）');
   }
 
+  const totalAmount = Number((params.amountCents / 100).toFixed(2));
+
   const res = await fetch(`${getApiBase()}/api/v1/checkout/checkout_sessions/create`, {
     method: 'POST',
     headers: {
@@ -183,11 +185,22 @@ export async function createAirwallexCheckoutSession(
       request_id: generateRequestId(),
       account_id: accountId,
       mode: 'PAYMENT',
-      amount: Number((params.amountCents / 100).toFixed(2)),
       currency: params.currency,
       merchant_order_id: params.merchantOrderId,
       success_url: params.successUrl,
       metadata: params.metadata,
+      line_items: [
+        {
+          price_data: {
+            currency: params.currency,
+            unit_amount: totalAmount,
+            product_data: {
+              name: `O'CHIU 訂單 #${params.merchantOrderId}`,
+            },
+          },
+          quantity: 1,
+        },
+      ],
     }),
   });
 
