@@ -209,5 +209,19 @@ export async function createAirwallexCheckoutSession(
     throw new Error(`Airwallex 建立 Checkout Session 失敗（${res.status}）：${text}`);
   }
 
-  return (await res.json()) as AirwallexCheckoutSession;
+  const raw = (await res.json()) as Record<string, any>;
+  const checkoutUrl = raw.url || raw.checkout_url || raw.hosted_url || '';
+
+  if (!checkoutUrl) {
+    throw new Error(`Airwallex 未回傳支付網址，原始回應：${JSON.stringify(raw)}`);
+  }
+
+  return {
+    id: raw.id,
+    url: checkoutUrl,
+    status: raw.status,
+    amount: raw.amount,
+    currency: raw.currency,
+    merchant_order_id: raw.merchant_order_id,
+  };
 }

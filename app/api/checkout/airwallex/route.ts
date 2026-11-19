@@ -57,8 +57,13 @@ export async function POST(request: NextRequest) {
     });
 
     // 👈 回傳 url 給前端
+    // 回傳所有常見網址欄位別名，確保前端 100% 讀得到
     return NextResponse.json({
+      success: true,
       url: checkoutSession.url,
+      checkoutUrl: checkoutSession.url,
+      paymentUrl: checkoutSession.url,
+      redirectUrl: checkoutSession.url,
     });
 
   } catch (error) {
