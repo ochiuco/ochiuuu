@@ -4,9 +4,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { createAirwallexPaymentIntent, getAirwallexEnv } from '@/lib/airwallex';
 
-export const maxDuration = 30;
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const maxDuration = 30; // 👈 放在函數外面
 
 export async function POST(request: NextRequest) {
+  console.log("🚀 Airwallex checkout API hit"); // 方便你在 Vercel Logs 看到它被觸發
+  
   try {
     const { orderId } = await request.json();
 
