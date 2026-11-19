@@ -191,10 +191,10 @@ export async function createAirwallexCheckoutSession(
       metadata: params.metadata,
       line_items: [
         {
-          price_data: {
+          price: {
             currency: params.currency,
             unit_amount: totalAmount,
-            product_data: {
+            product: {
               name: `O'CHIU 訂單 #${params.merchantOrderId}`,
             },
           },
